@@ -5,7 +5,7 @@ db = SQLAlchemy()
 # Define your database model here
 class Tree(db.Model):
     id = db.Column(db.integer, primary_key=True)
-    coomon_name = db.Column(db.integer, primary_key=True)
+    common_name = db.Column(db.integer, primary_key=True)
     scientific_name = db.Column(db.integer, primary_key=True)
     genus = db.Column(db.integer, primary_key=True)
     species = db.Column(db.integer, primary_key=True)
@@ -13,9 +13,6 @@ class Tree(db.Model):
     latitide_range  = db.Column(db.integer, primary_key=True)
     population_level = db.Column(db.integer, primary_key=True)
     max_age = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
     
 
 
