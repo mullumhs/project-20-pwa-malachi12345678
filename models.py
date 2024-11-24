@@ -4,18 +4,16 @@ db = SQLAlchemy()
 
 # Define your database model here
 class Tree(db.Model):
-    id = db.Column(db.integer, primary_key=True)
-    coomon_name = db.Column(db.integer, primary_key=True)
-    scientific_name = db.Column(db.integer, primary_key=True)
-    genus = db.Column(db.integer, primary_key=True)
-    species = db.Column(db.integer, primary_key=True)
-    habitat_conditions = db.Column(db.integer, primary_key=True)
-    latitide_range  = db.Column(db.integer, primary_key=True)
-    population_level = db.Column(db.integer, primary_key=True)
-    max_age = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
-    id = db.Column(db.integer, primary_key=True)
-    
+    id = db.Column(db.Integer, primary_key=True,)
+    common_name = db.Column(db.String(100), nullable = False)
+    scientific_name = db.Column(db.String(100), nullable = True)
+    genus = db.Column(db.String(100), nullable = False)
+    species = db.Column(db.String(100), nullable = False)
+    habitat_conditions = db.Column(db.String(100), nullable = True)
+    latitide_range = db.Column(db.String(100), nullable = True)
+    population_level = db.Column(db.String(100), nullable = True)
+    lifespan = db.Column(db.Integer, nullable = True)
+    max_size = db.Column(db.String(100), nullable = True)
+    more_info = db.Column(db.String(300), nullable = True)
 
 

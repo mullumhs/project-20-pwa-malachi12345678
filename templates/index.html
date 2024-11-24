@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="container">
+  <div class="row">
+    {%for i in range (12)%}
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="card" style="width: 18rem">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFxtWz4j0-AQuNA63yGE64IQipQErGr5BDLg&s
+          "
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            Some quick example text to build on the sigma grindset
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+{% endblock %}
