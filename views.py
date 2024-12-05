@@ -11,8 +11,8 @@ def init_routes(app):
 
     @app.route('/', methods=['GET'])
     def get_items():
-        # This route should retrieve all items from the database and display them on the page.
-        return render_template('index.html', message='Displaying all items')
+        trees = Tree.query.all()
+        return render_template('index.html', trees = trees)
 
 
 
@@ -29,8 +29,10 @@ def init_routes(app):
             image = request.form("image"),
             additional_info = request.form("additional_info")
         )
-
+        db.session.add(tree)
+        db.session.commit()
         # This route should handle adding a new item to the database.
+        #return redirect(url_for('get_items'))
         return render_template('index.html', message='Item added successfully')
 
 
