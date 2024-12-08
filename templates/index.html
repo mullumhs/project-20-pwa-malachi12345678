@@ -12,12 +12,13 @@
         />
         <div class="card-body">
           <h5 class="card-title">{{tree.common_name}}</h5>
-          <p class="card-text">
-            Some quick example text to build on the sigma grindset
-          </p>
-          <button type="button" class="btn btn-outline-success">Close</button>
-          <button type="button" class="btn btn-outline-warning">Edit</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
+          <p class="card-text">{{tree.scientific_name}}</p>
+          <a
+            class="btn btn-success"
+            href="{{url_for('get_item')}}"
+            role="button"
+            >Veiw Details</a
+          >
         </div>
       </div>
     </div>

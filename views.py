@@ -14,27 +14,31 @@ def init_routes(app):
         trees = Tree.query.all()
         return render_template('index.html', trees = trees)
 
+    @app.route('/display', methods=['GET'])
+    def get_item():  
+        return render_template('index.html')
+    
 
 
     @app.route('/add', methods=['POST'])
     def create_item():
         tree = Tree(
-            common_name = request.form("common_name"),
-            genus = request.form("genus"),
-            species = request.form("species"),
-            scientific_name = request.form("scientific_name"),
-            habitat_biome = request.form("habitat_biome"),
-            lifespan = request.form("lifespan"),
-            height = request.form("height"),
-            image = request.form("image"),
-            additional_info = request.form("additional_info")
+            common_name = request.form["common_name"],
+            genus = request.form["genus"],
+            species = request.form["species"],
+            scientific_name = request.form["scientific_name"],
+            habitat_biome = request.form["habitat_biome"],
+            lifespan = request.form["lifespan"],
+            height = request.form["height"],
+            image = request.form["image"],
+            additional_info = request.form["additional_info"]
         )
         db.session.add(tree)
         db.session.commit()
         # This route should handle adding a new item to the database.
-        #return redirect(url_for('get_items'))
-        return render_template('index.html', message='Item added successfully')
-
+        
+        #return render_template('index.html', message='Item added successfully')
+        return redirect(url_for('get_items'))
 
 
     @app.route('/update', methods=['POST'])
