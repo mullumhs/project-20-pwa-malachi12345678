@@ -16,7 +16,9 @@ def init_routes(app):
 
     @app.route('/display', methods=['GET'])
     def get_item():  
-        return render_template('index.html')
+        id = request.args.get("id")
+        tree = Tree.query.get(id)
+        return render_template('display.html', tree = tree)
     
 
 

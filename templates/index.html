@@ -15,7 +15,7 @@
           <p class="card-text">{{tree.scientific_name}}</p>
           <a
             class="btn btn-success"
-            href="{{url_for('get_item')}}"
+            href="{{url_for('get_item', id = tree.id)}}"
             role="button"
             >Veiw Details</a
           >
