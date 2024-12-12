@@ -45,10 +45,30 @@ def init_routes(app):
 
     @app.route('/update', methods=['POST'])
     def update_item():
-        # This route should handle updating an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item updated successfully')
 
-
+        if request.method == 'POST':
+            id = request.form['id']
+            tree = Tree.query.get(id)
+            tree.common_name = request.form["common_name"]
+            tree.genus = request.form["genus"]
+            tree.species = request.form["species"]
+            tree.scientific_name = request.form["scientific_name"]
+            tree.habitat_biome = request.form["habitat_biome"]
+            tree.lifespan = request.form["lifespan"]
+            tree.height = request.form["height"]
+            tree.image = request.form["image"]
+            tree.additional_info = request.form["additional_info"]
+            db.session.add(tree)
+            db.session.commit()
+            return redirect(url_for('get_items'))
+        
+    @app.route('/edit', methods=['GET'])
+    def edit_item():   
+         # This route should handle updating an existing item identified by the given ID.
+        id = request.args.get("id")
+        tree = Tree.query.get(id)
+        return render_template('edit.html', tree = tree)
+       
 
     @app.route('/delete', methods=['POST'])
     def delete_item():

@@ -1,0 +1,145 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+
+<form action="/update" method="POST">
+    <div>
+      <h1>
+        Edit database
+      </h1>
+        <input type="hidden" name="id" value = "{{tree.id}}">
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Common Name</label
+          >
+          <input
+            value = "{{tree.common_name}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="common_name"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Genus</label
+          >
+          <input
+            value = "{{tree.genus}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="genus"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Species</label
+          >
+          <input
+            value = "{{tree.species}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="species"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Scientific Name</label
+          >
+          <input
+            value = "{{tree.scientific_name}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="scientific_name"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Habitat Biome</label
+          >
+          <input
+            value = "{{tree.habitat_biome}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="habitat_biome"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Lifespan</label
+          >
+          <input
+            value = "{{tree.lifespan}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="lifespan"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Height</label
+          >
+          <input
+            value = "{{tree.height}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="height"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Add image</label
+          >
+          <input
+            value = "{{tree.image}}"
+            class="form-control"
+            id="editFormControlInput1"
+            placeholder="pine tree"
+            name="image"
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="editFormControlInput1"
+            class="form-label"
+            >Additional Info</label
+          >
+          <textarea
+            value = "{{tree.additional_info}}"
+            class="form-control"
+            id="editFormControlInput1"
+            rows="3"
+            name="additional_info"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">
+            Update database
+          </button>
+      </div>
+    </div>
+    <div>
+    </div>
+  </form>
+
+  {% endblock %}
