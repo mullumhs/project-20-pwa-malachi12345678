@@ -8,12 +8,13 @@ from models import db, Tree # Also import your database model here
 # You can also use flash for displaying status messages
 
 def init_routes(app):
-
+    #route for home page
     @app.route('/', methods=['GET'])
     def get_items():
         trees = Tree.query.all()
         return render_template('index.html', trees = trees)
 
+        #route for individual tree display
     @app.route('/display', methods=['GET'])
     def get_item():  
         id = request.args.get("id")
@@ -21,7 +22,7 @@ def init_routes(app):
         return render_template('display.html', tree = tree)
     
 
-
+    #route for add tree form
     @app.route('/add', methods=['POST'])
     def create_item():
         tree = Tree(
@@ -37,12 +38,10 @@ def init_routes(app):
         )
         db.session.add(tree)
         db.session.commit()
-        # This route should handle adding a new item to the database.
-        
-        #return render_template('index.html', message='Item added successfully')
+        # This route should handle adding a new item to the database. 
         return redirect(url_for('get_items'))
 
-
+        #route for edit form
     @app.route('/update', methods=['POST'])
     def update_item():
 
@@ -62,6 +61,7 @@ def init_routes(app):
             db.session.commit()
             return redirect(url_for('get_items'))
         
+            #route for getting id for edit form
     @app.route('/edit', methods=['GET'])
     def edit_item():   
          # This route should handle updating an existing item identified by the given ID.
@@ -69,8 +69,12 @@ def init_routes(app):
         tree = Tree.query.get(id)
         return render_template('edit.html', tree = tree)
        
-
-    @app.route('/delete', methods=['POST'])
+        #route for delete
+    @app.route('/delete', methods=['GET'])
     def delete_item():
+        id = request.args.get("id")
+        tree = Tree.query.get(id)
+        db.session.delete(tree)
+        db.session.commit()
         # This route should handle deleting an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item deleted successfully')
+        return redirect(url_for('get_items'))

@@ -24,7 +24,7 @@
   </head>
 
   <body>
-    <!-- Add your navbar here -->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="{{url_for('get_items')}}">Tree Database</a>
@@ -41,6 +41,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- home button -->
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{{url_for('get_items')}}">Home</a>
             </li>
@@ -57,7 +58,7 @@
               </button>
 
 
-              <!-- Modal -->
+              <!--  Add tree Modal -->
               <div
                 class="modal fade"
                 id="exampleModal"
@@ -66,6 +67,7 @@
                 aria-hidden="true"
               >
                 <div class="modal-dialog modal-dialog-scrollable">
+                                <!-- add tree form -->
                   <form class="modal-content" action="/add" method="POST">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -82,6 +84,7 @@
                             >Common Name</label
                           >
                           <input
+                            required minlength="2" maxlength="100"
                             class="form-control"
                             id="exampleFormControlInput1"
                             placeholder="pine tree"
@@ -95,6 +98,7 @@
                             >Genus</label
                           >
                           <input
+                          required minlength="2" maxlength="100"
                             class="form-control"
                             id="exampleFormControlInput1"
                             placeholder="pine tree"
@@ -108,6 +112,7 @@
                             >Species</label
                           >
                           <input
+                            required minlength="2" maxlength="100"
                             class="form-control"
                             id="exampleFormControlInput1"
                             placeholder="pine tree"
@@ -121,6 +126,7 @@
                             >Scientific Name</label
                           >
                           <input
+                          required minlength="2" maxlength="100"
                             class="form-control"
                             id="exampleFormControlInput1"
                             placeholder="pine tree"
@@ -171,7 +177,7 @@
                           <label
                             for="exampleFormControlInput1"
                             class="form-label"
-                            >Add image</label
+                            >Add image link</label
                           >
                           <input
                             class="form-control"
@@ -196,6 +202,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
+                                    <!-- commit to database button in footer -->
                       <button type="submit" class="btn btn-success">
                         Add to database
                       </button>
@@ -205,18 +212,6 @@
               </div>
             </li>
           </ul>
-
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
