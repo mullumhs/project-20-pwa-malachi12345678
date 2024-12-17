@@ -84,7 +84,7 @@
                             >Common Name</label
                           >
                           <input
-                            required minlength="2" maxlength="100"
+                            required minlength="2" maxlength="100" 
                             class="form-control"
                             id="exampleFormControlInput1"
                             placeholder="pine tree"
@@ -212,6 +212,13 @@
               </div>
             </li>
           </ul>
+          <form action="{{ url_for('index') }}" method="get" class="d-flex">
+
+            <input class="form-control me-2" type="search" name="query" placeholder="Search..." aria-label="Search">
+        
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        
+        </form>
         </div>
       </div>
     </nav>

@@ -11,8 +11,21 @@ def init_routes(app):
     #route for home page
     @app.route('/', methods=['GET'])
     def get_items():
-        trees = Tree.query.all()
+
+        search_query = request.args.get('query')
+
+        
+
+        if search_query:
+            # If there's a search query, filter the results
+            trees = Tree.query.filter(Tree.title.ilike(f'%{search_query}%')).all()
+
+        else:
+            # If no search query, return all items
+            trees = Tree.query.all()
+
         return render_template('index.html', trees = trees)
+
 
         #route for individual tree display
     @app.route('/display', methods=['GET'])
@@ -78,3 +91,4 @@ def init_routes(app):
         db.session.commit()
         # This route should handle deleting an existing item identified by the given ID.
         return redirect(url_for('get_items'))
+    
