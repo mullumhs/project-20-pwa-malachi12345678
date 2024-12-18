@@ -18,7 +18,7 @@ def init_routes(app):
 
         if search_query:
             # If there's a search query, filter the results
-            trees = Tree.query.filter(Tree.title.ilike(f'%{search_query}%')).all()
+            trees = Tree.query.filter(Tree.common_name.ilike(f'%{search_query}%')).all()
 
         else:
             # If no search query, return all items
